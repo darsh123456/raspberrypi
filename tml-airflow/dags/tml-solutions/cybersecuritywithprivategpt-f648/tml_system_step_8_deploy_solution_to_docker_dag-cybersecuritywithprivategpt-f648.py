@@ -14,7 +14,7 @@ sys.dont_write_bytecode = True
 
 ############################################################### DO NOT MODIFY BELOW ####################################################
 # Instantiate your DAG
-@dag(dag_id="tml_system_step_8_deploy_solution_to_docker_dag", tags=["tml_system_step_8_deploy_solution_to_docker_dag"], schedule=None,  catchup=False)
+@dag(dag_id="tml_system_step_8_deploy_solution_to_docker_dag_cybersecuritywithprivategpt-f648", tags=["tml_system_step_8_deploy_solution_to_docker_dag_cybersecuritywithprivategpt-f648"], schedule=None,  catchup=False)
 def starttmldeploymentprocess():
     # Define tasks
     def empty():
@@ -60,7 +60,7 @@ def dockerit(**context):
        ti.xcom_push(key="{}_solution_dag_to_trigger".format(sname), value=sd)
         
        scid = tsslogging.getrepo('/tmux/cidname.txt')
-       cid = scid # cid added
+       cid = scid
   
        key = "trigger-{}".format(sname)
        os.environ[key] = sd
@@ -85,6 +85,13 @@ def dockerit(**context):
               tsslogging.locallogs("ERROR", "STEP 8: There seems to be an issue with docker commit. Here is the command: docker commit {} {}".format(cid,cname)) 
               tsslogging.tsslogit("Deploying to Docker in {}".format(os.path.basename(__file__)), "ERROR" )             
               tsslogging.git_push("/{}".format(repo),"Entry from {}".format(os.path.basename(__file__)),"origin")
+           
+         v=subprocess.call("docker push {}".format(cname), shell=True)  
+         time.sleep(7)               
+         if v != 0:   
+              tsslogging.locallogs("WARN", "STEP 8: There seems to an issue pushing to Docker.  Here is the command: docker push {} - message={}".format(cname,v)) 
+         else:                   
+              tsslogging.locallogs("INFO", "STEP 8: Successfully ran Docker push: docker push {} - message={}".format(cname,v)) 
            
        os.environ['tssbuild']="1"
     

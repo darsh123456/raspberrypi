@@ -14,7 +14,7 @@ sys.dont_write_bytecode = True
 
 ############################################################### DO NOT MODIFY BELOW ####################################################
 # Instantiate your DAG
-@dag(dag_id="tml_system_step_8_deploy_solution_to_docker_dag", tags=["tml_system_step_8_deploy_solution_to_docker_dag"], schedule=None,  catchup=False)
+@dag(dag_id="tml_system_step_8_deploy_solution_to_docker_dag_myawesometmlsolutionml-f648", tags=["tml_system_step_8_deploy_solution_to_docker_dag_myawesometmlsolutionml-f648"], schedule=None,  catchup=False)
 def starttmldeploymentprocess():
     # Define tasks
     def empty():
@@ -60,7 +60,7 @@ def dockerit(**context):
        ti.xcom_push(key="{}_solution_dag_to_trigger".format(sname), value=sd)
         
        scid = tsslogging.getrepo('/tmux/cidname.txt')
-       cid = scid # cid added
+       cid = scid
   
        key = "trigger-{}".format(sname)
        os.environ[key] = sd
