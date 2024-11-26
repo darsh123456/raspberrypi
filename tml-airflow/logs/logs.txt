@@ -12242,3 +12242,4 @@ origin	https://<personal access token hidden>@github.com/darsh123456/raspberrypi
 [INFO 2024-11-26_18:14:20] Preprocessing DAG in tml_system_step_4_kafka_preprocess_dag-cybersecurity-f648.py
 [INFO 2024-11-26_18:14:25] Visualization DAG in tml_system_step_7_kafka_visualization_dag-cybersecurity-f648.py
 [INFO 2024-11-26_18:14:45] PrivateGPT Step 9 DAG in tml_system_step_9_privategpt_qdrant_dag-cybersecurity-f648.py
+[INFO 2024-11-26_18:15:06] Docker DAG in tml_system_step_8_deploy_solution_to_docker_dag-cybersecurity-f648.py
