@@ -12266,3 +12266,4 @@ origin	https://<personal access token hidden>@github.com/darsh123456/raspberrypi
 [INFO 2024-11-26_18:56:44] Deleting topic prediction-data in tml_system_step_2_kafka_createtopic_dag-cybersecurity-f648.py
 [INFO 2024-11-26_18:56:50] Deleting topic cisco-network-privategpt in tml_system_step_2_kafka_createtopic_dag-cybersecurity-f648.py
 [INFO 2024-11-26_18:57:06] MQTT producing DAG in tml_read_MQTT_step_3_kafka_producetotopic_dag-cybersecurity-f648.py
+[INFO 2024-11-26_18:57:13] Preprocessing DAG in tml_system_step_4_kafka_preprocess_dag-cybersecurity-f648.py
